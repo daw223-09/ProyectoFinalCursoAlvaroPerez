@@ -7,6 +7,16 @@ RUN apt-get update \
     && apt-get install -y libpng-dev \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install zip
-RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql && docker-php-ext-install gd && docker-php-ext-enable gd
+RUN rm -r /etc/apache2/sites-available/000-default.conf
+COPY sites-available /etc/apache2/sites-available/
+RUN a2ensite sites.conf
+RUN apt-get update && apt-get install -y libmagickwand-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN pecl install imagick-beta
+RUN docker-php-ext-enable imagick
+RUN docker-php-ext-install exif && docker-php-ext-enable exif
+RUN apt-get install -y libicu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
 RUN a2enmod rewrite
 EXPOSE 80
