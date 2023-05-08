@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       scope: "*"
     };
 
-    this.http.post("http://localhost:8000/oauth/token", data).subscribe({
+    this.http.post("http://185.253.155.205/oauth/token", data).subscribe({
       next: (result: any) => {
         localStorage.setItem("token", result.access_token),
         this.router.navigate(["/secure"])

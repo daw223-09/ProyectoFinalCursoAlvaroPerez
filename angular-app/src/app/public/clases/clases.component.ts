@@ -24,7 +24,7 @@ export class ClasesComponent {
   ngOnInit(): void {
     this.loggedIn = localStorage.getItem("token") !== null;
 
-    this.http.get<any>('http://localhost:8000/api/index').subscribe(data => {
+    this.http.get<any>('http://185.253.155.205/api/index').subscribe(data => {
       this.pBodyCombat = data[0].plazas;
       this.pBodyPump = data[1].plazas;
       this.pSpinning = data[2].plazas;
@@ -37,9 +37,9 @@ export class ClasesComponent {
       "Authorization": `Bearer ${localStorage.getItem("token")}`
     });
 
-    this.http.get<any>('http://localhost:8000/api/user', { headers: headers }).subscribe(data => {
+    this.http.get<any>('http://185.253.155.205/api/user', { headers: headers }).subscribe(data => {
       this.idUsuario = data.id,
-        this.http.get<any>('http://localhost:8000/api/getClaseUsuario/' + this.idUsuario).subscribe(data => data.forEach((element: any) => {
+        this.http.get<any>('http://185.253.155.205/api/getClaseUsuario/' + this.idUsuario).subscribe(data => data.forEach((element: any) => {
           for (let i = 0; i < this.claseApuntado.length; i++) {
             if (element["clase_id"] == i) {
               switch (i) {
@@ -73,7 +73,7 @@ export class ClasesComponent {
 
   apuntarse(clase: any) {
 
-    this.http.get<any>('http://localhost:8000/api/plazaClase/' + clase).subscribe(data => {
+    this.http.get<any>('http://185.253.155.205/api/plazaClase/' + clase).subscribe(data => {
 
       switch (clase) {
         case 1:
@@ -92,9 +92,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
 
           break;
 
@@ -113,9 +113,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
           break;
 
         case 3:
@@ -133,9 +133,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
           break;
 
         case 4:
@@ -153,9 +153,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
           break;
 
         case 5:
@@ -173,9 +173,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
           break;
 
         case 6:
@@ -193,9 +193,9 @@ export class ClasesComponent {
             id_clase: clase
           }
 
-          this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba--);
+          this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba--);
 
-          this.http.post<any>('http://localhost:8000/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
+          this.http.post<any>('http://185.253.155.205/api/claseUsuario', { clase_usuario: clase_usuario }).subscribe(data => console.log(data));
           break;
       }
     });
@@ -216,9 +216,9 @@ export class ClasesComponent {
           updated_at: null
         };
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
 
         break;
 
@@ -232,9 +232,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 3:
@@ -247,9 +247,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 4:
@@ -262,9 +262,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 5:
@@ -277,9 +277,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 6:
@@ -292,9 +292,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://localhost:8000/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba++);
+        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba++);
 
-        this.http.delete<any>('http://localhost:8000/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
     }
 
