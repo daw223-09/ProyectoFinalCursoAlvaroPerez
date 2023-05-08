@@ -197,11 +197,11 @@ CREATE TABLE `oauth_clients` (
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Laravel Personal Access Client', '5huyYoqB2gWYHHbHpjQrhpC2e50kwwFNkz9bbp18', NULL, 'http://localhost', 1, 0, 0, '2023-04-17 14:40:31', '2023-04-17 14:40:31'),
-(2, NULL, 'Laravel Password Grant Client', 'BHIKIghnfJgYok4VOh2asdhaVngUVab8AILmvhec', 'users', 'http://localhost', 0, 1, 0, '2023-04-17 14:40:31', '2023-04-17 14:40:31'),
-(3, NULL, 'Laravel Personal Access Client', 'lNvVFcUKAho9zaYZaDNN0CdrdFvZb9az0UEaNdgd', NULL, 'http://localhost', 1, 0, 0, '2023-04-17 14:59:46', '2023-04-17 14:59:46'),
-(4, NULL, 'Laravel Password Grant Client', 'UzBQtHKnXffmGhR3PCmYJ7QJvZgbfe1GO2Mk6613', 'users', 'http://localhost', 0, 1, 0, '2023-04-17 14:59:46', '2023-04-17 14:59:46'),
-(5, NULL, 'Laravel Password Grant Client', 'IRmFp3M3vd3oAyLHD8oK2GKCyDCQLR5Jk5u3UszI', 'users', 'http://localhost', 0, 1, 0, '2023-04-17 15:24:51', '2023-04-17 15:24:51');
+(1, NULL, 'Laravel Personal Access Client', '5huyYoqB2gWYHHbHpjQrhpC2e50kwwFNkz9bbp18', NULL, 'http://185.253.155.205', 1, 0, 0, '2023-04-17 14:40:31', '2023-04-17 14:40:31'),
+(2, NULL, 'Laravel Password Grant Client', 'BHIKIghnfJgYok4VOh2asdhaVngUVab8AILmvhec', 'users', 'http://185.253.155.205', 0, 1, 0, '2023-04-17 14:40:31', '2023-04-17 14:40:31'),
+(3, NULL, 'Laravel Personal Access Client', 'lNvVFcUKAho9zaYZaDNN0CdrdFvZb9az0UEaNdgd', NULL, 'http://185.253.155.205', 1, 0, 0, '2023-04-17 14:59:46', '2023-04-17 14:59:46'),
+(4, NULL, 'Laravel Password Grant Client', 'UzBQtHKnXffmGhR3PCmYJ7QJvZgbfe1GO2Mk6613', 'users', 'http://185.253.155.205', 0, 1, 0, '2023-04-17 14:59:46', '2023-04-17 14:59:46'),
+(5, NULL, 'Laravel Password Grant Client', 'IRmFp3M3vd3oAyLHD8oK2GKCyDCQLR5Jk5u3UszI', 'users', 'http://185.253.155.205', 0, 1, 0, '2023-04-17 15:24:51', '2023-04-17 15:24:51');
 
 -- --------------------------------------------------------
 
