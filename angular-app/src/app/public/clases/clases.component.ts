@@ -216,9 +216,9 @@ export class ClasesComponent {
           updated_at: null
         };
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
 
         break;
 
@@ -232,9 +232,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyPump++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 3:
@@ -247,9 +247,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pSpinning++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 4:
@@ -262,9 +262,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pYoga++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 5:
@@ -277,9 +277,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pXcore++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
 
       case 6:
@@ -292,9 +292,9 @@ export class ClasesComponent {
           updated_at: null
         }
 
-        this.http.post<any>('http://185.253.155.205/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba++);
+        this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pZumba++);
 
-        this.http.delete<any>('http://185.253.155.205/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
         break;
     }
 

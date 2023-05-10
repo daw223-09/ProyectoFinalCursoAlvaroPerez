@@ -6,3 +6,7 @@
 .navbar-nav a {
     padding: 0px 5px;
 }
+
+.container{
+    background-size: cover;
+}
