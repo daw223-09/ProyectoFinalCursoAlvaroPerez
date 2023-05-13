@@ -7,6 +7,10 @@ import { SecureComponent } from './secure/secure.component';
 import { PublicModule } from './public/public.module';
 import { RouterModule } from '@angular/router';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +22,11 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     PublicModule,
     RouterModule,
-
   ],
-  providers: [],
+  providers: [
+    /* Soluciona el error de la recarga de pagina */
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

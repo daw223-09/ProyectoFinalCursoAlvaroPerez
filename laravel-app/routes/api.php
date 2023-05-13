@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\ClasesUsuarioController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,5 @@ Route::post("/apuntado/{id}", [ClaseController::class, "actualizar"]);
 Route::post("/claseUsuario", [ClasesUsuarioController::class, "create"]);
 Route::delete("/claseUsuarioDelete/{idUsuario}/{idClase}", [ClasesUsuarioController::class, "delete"]);
 Route::get("/getClaseUsuario/{idUsuario}", [ClasesUsuarioController::class, "getClaseUsuario"]);
+
+Route::get("/material", [MaterialController::class, "index"]);

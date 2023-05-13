@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { ClasesComponent } from './clases/clases.component';
 import { MaterialComponent } from './material/material.component';
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MaterialComponent } from './material/material.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPayPalModule
   ]
 })
 export class PublicModule { }

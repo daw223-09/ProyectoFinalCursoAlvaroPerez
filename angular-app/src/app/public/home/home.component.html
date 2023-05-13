@@ -16,7 +16,9 @@
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">
                 <h1 class="display-3">Bienvenido a Healthy Life</h1>
-                <a class="btn btn-lg btn-primary" routerLink="/login">Login</a>
+                <a class="btn btn-lg btn-primary" routerLink="/login" *ngIf="!loggedIn">Login</a>
+                <br>
+                <h3 *ngIf="loggedIn">Hola {{user.name}}</h3>
             </div>
         </div>
     </div>

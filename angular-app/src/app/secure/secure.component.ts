@@ -24,7 +24,7 @@ export class SecureComponent implements OnInit {
       },
       error: err => {
         localStorage.removeItem("token"),
-        this.router.navigate(["/public/login"]);
+        this.router.navigate(["/login"]);
       }
     }
     );

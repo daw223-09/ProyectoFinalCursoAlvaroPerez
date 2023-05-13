@@ -1,5 +1,6 @@
 <!-- https://www.sport.es/labolsadelcorredor/material-esencial-para-practicar-fitness-en-el-gimnasio/ -->
 <h2>Pesos</h2>
+<div class="total">Total: 0</div>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -11,9 +12,9 @@
               <p class="card-text">Mancuernas</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-
+                  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                 </div>
-                <small class="text-body-secondary"> plazas</small>
+                <small class="text-body-secondary">{{mancuerna}}€</small>
               </div>
             </div>
           </div>
@@ -27,7 +28,7 @@
                 <div class="btn-group">
 
                 </div>
-                <small class="text-body-secondary">plazas</small>
+                <small class="text-body-secondary">{{pesaRusa}}€</small>
               </div>
             </div>
           </div>
@@ -46,6 +47,7 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
 
