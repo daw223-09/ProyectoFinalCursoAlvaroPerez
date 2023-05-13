@@ -3,6 +3,9 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+import { Inject }  from '@angular/core';
+import { DOCUMENT } from '@angular/common'; 
+
 @Component({
   selector: 'app-material',
   templateUrl: './material.component.html',
@@ -14,9 +17,17 @@ export class MaterialComponent {
 
   loggedIn = false;
 
-  mancuerna = 0; pesaRusa = 0;
+  /* mancuerna = 0; pesaRusa = 0;
+  mancuernaLbl = ""; */
 
-  constructor(private http: HttpClient, private router: Router) {
+  nombreMaterial:any = [];
+  precioMaterial:any = [];
+
+  carrito:any = [];
+
+  total = 0;
+
+  constructor(private http: HttpClient, private router: Router, @Inject(DOCUMENT) document: Document) {
 
   }
 
@@ -24,12 +35,29 @@ export class MaterialComponent {
     this.loggedIn = localStorage.getItem("token") !== null;
 
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/material').subscribe(data => {
+      /* this.mancuernaLbl = data[0].material;
       this.mancuerna = data[0].precio;
-      this.pesaRusa = data[1].precio;
+      this.pesaRusa = data[1].precio; */
+
+      data.forEach((element: any) => {
+        this.nombreMaterial.push(element["material"])
+        this.precioMaterial.push(element["precio"]);
+      });
     });
 
 
     this.initConfig();
+  }
+
+
+  addToCart(id:any) {
+    this.total += this.precioMaterial[id];
+
+    let newCarrito = document.createElement("div");
+    newCarrito.textContent = this.nombreMaterial[id] + ": " + this.precioMaterial[id];
+
+    this.carrito.push(newCarrito);
+    console.log(this.carrito)
   }
 
   private initConfig(): void {
@@ -41,11 +69,11 @@ export class MaterialComponent {
         purchase_units: [{
           amount: {
             currency_code: 'EUR',
-            value: '9.99',
+            value: this.total.toString(),
             breakdown: {
               item_total: {
                 currency_code: 'EUR',
-                value: '9.99'
+                value: this.total.toString()
               }
             }
           },
@@ -55,7 +83,7 @@ export class MaterialComponent {
             category: 'DIGITAL_GOODS',
             unit_amount: {
               currency_code: 'EUR',
-              value: '9.99',
+              value: this.total.toString(),
             },
           }]
         }]
