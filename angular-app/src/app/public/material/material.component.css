@@ -3,15 +3,19 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
-  }
-  
-  .items strong {
+}
+
+.items strong {
     flex-grow: 1;
-  }
-  
-  .items i {
+}
+
+.items i {
     margin-left: 10px;
     color: red;
     cursor: pointer;
-  }
-  
+}
+
+
+.fa-cart-plus {
+    margin-right: 0.5rem;
+}

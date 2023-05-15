@@ -59,19 +59,16 @@ export class MaterialComponent {
     this.itemsCarrito = true;
   }
 
-  removeFromCart(material: any) {
+  removeFromCart(material: any, index: any) {
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/materialPorNombre/' + material).subscribe(data => {
-      console.log(data)
-      this.total -= this.precioMaterial[data[0].id];
-      console.log(this.precioMaterial[data[0].id])
-
-      this.carrito.splice(data[0].id, 1);
+      this.total -= this.precioMaterial[data[0].id-1];
+      console.log(this.precioMaterial[data[0].id-1])
+      this.carrito.splice(index, 1);
       if (this.carrito.length == 0) {
         this.total = 0;
         this.itemsCarrito = false;
       }
       
-      console.log(this.total)
     });
   }
 

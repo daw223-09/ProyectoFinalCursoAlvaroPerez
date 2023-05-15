@@ -62,8 +62,8 @@
     <div class="card shadow-sm">
       <div class="card-body">
         <h3>Carrito</h3>
-        <div class="equipamiento" *ngFor="let item of carrito">
-          <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item)"></i></div>
+        <div class="equipamiento" *ngFor="let item of carrito; let i=index">
+          <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item, i)"></i></div>
         </div>
         <br>
         <div class="total">Total: {{total}} €</div>
