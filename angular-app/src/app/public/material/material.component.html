@@ -65,8 +65,9 @@
         <div class="equipamiento" *ngFor="let item of carrito">
           <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item)"></i></div>
         </div>
+        <br>
         <div class="total">Total: {{total}} €</div>
-        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        <ngx-paypal *ngIf="itemsCarrito" [config]="payPalConfig"></ngx-paypal>
       </div>
     </div>
   </div>

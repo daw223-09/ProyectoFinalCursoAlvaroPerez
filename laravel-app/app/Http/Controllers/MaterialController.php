@@ -20,8 +20,7 @@ class MaterialController extends Controller
     public function getMaterialPorNombre(Request $request)
     {
         $material = $request->material;
-        //$materiales = Material::where('material', '=', $material)->get();
-        $materiales = DB::table('materials')->select("id")->where('material', '=', $material)->get();
+        $materiales = Material::where('material', '=', $material)->get();
         return $materiales;
     }
 

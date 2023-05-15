@@ -3,8 +3,8 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { Inject }  from '@angular/core';
-import { DOCUMENT } from '@angular/common'; 
+import { Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-material',
@@ -20,12 +20,13 @@ export class MaterialComponent {
   /* mancuerna = 0; pesaRusa = 0;
   mancuernaLbl = ""; */
 
-  nombreMaterial:any = [];
-  precioMaterial:any = [];
+  nombreMaterial: any = [];
+  precioMaterial: any = [];
 
-  carrito:any = [];
+  carrito: any = [];
+  itemsCarrito = false;
 
-  total = 0;
+  total: any = 0;
 
   constructor(private http: HttpClient, private router: Router, @Inject(DOCUMENT) document: Document) {
 
@@ -48,22 +49,29 @@ export class MaterialComponent {
   }
 
 
-  addToCart(id:any) {
+  addToCart(id: any) {
     this.total += this.precioMaterial[id];
 
     let newCarrito = document.createElement("div");
     newCarrito.textContent = this.nombreMaterial[id];
 
     this.carrito.push(newCarrito.textContent);
-    console.log(this.carrito)
+    this.itemsCarrito = true;
   }
 
-  removeFromCart(material:any){
+  removeFromCart(material: any) {
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/materialPorNombre/' + material).subscribe(data => {
-     /*  this.total -= this.precioMaterial[data.id];
+      console.log(data)
+      this.total -= this.precioMaterial[data[0].id];
+      console.log(this.precioMaterial[data[0].id])
 
-      this.carrito.splice(data.id, 1); */
-      console.log(this.carrito)
+      this.carrito.splice(data[0].id, 1);
+      if (this.carrito.length == 0) {
+        this.total = 0;
+        this.itemsCarrito = false;
+      }
+      
+      console.log(this.total)
     });
   }
 

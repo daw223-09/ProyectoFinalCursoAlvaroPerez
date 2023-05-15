@@ -1,21 +1,17 @@
-.items{
-    border: 1px solid grey;
-    border-radius: 5px;
-    width: 16vw;
-    text-align: center;
-    margin-bottom: 1vh;
-}
-
-/* .paypal-button-number-1, .paypal-button-number-2{
-    display: none!important;
-}
-
-
-.paypal-button-number-1{
-
-} */
-
-
-.fa-trash{
+.items {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .items strong {
+    flex-grow: 1;
+  }
+  
+  .items i {
+    margin-left: 10px;
     color: red;
-}
+    cursor: pointer;
+  }
+  
