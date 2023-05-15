@@ -34,11 +34,9 @@ export class MaterialComponent {
   ngOnInit() {
     this.loggedIn = localStorage.getItem("token") !== null;
 
-    this.http.get<any>('http://185.253.155.205/back/api/index.php/api/material').subscribe(data => {
-      /* this.mancuernaLbl = data[0].material;
-      this.mancuerna = data[0].precio;
-      this.pesaRusa = data[1].precio; */
+    this.loggedIn = true;/* BORRAR */
 
+    this.http.get<any>('http://185.253.155.205/back/api/index.php/api/material').subscribe(data => {
       data.forEach((element: any) => {
         this.nombreMaterial.push(element["material"])
         this.precioMaterial.push(element["precio"]);
@@ -54,10 +52,19 @@ export class MaterialComponent {
     this.total += this.precioMaterial[id];
 
     let newCarrito = document.createElement("div");
-    newCarrito.textContent = this.nombreMaterial[id] + ": " + this.precioMaterial[id];
+    newCarrito.textContent = this.nombreMaterial[id];
 
-    this.carrito.push(newCarrito);
+    this.carrito.push(newCarrito.textContent);
     console.log(this.carrito)
+  }
+
+  removeFromCart(material:any){
+    this.http.get<any>('http://185.253.155.205/back/api/index.php/api/materialPorNombre/' + material).subscribe(data => {
+     /*  this.total -= this.precioMaterial[data.id];
+
+      this.carrito.splice(data.id, 1); */
+      console.log(this.carrito)
+    });
   }
 
   private initConfig(): void {

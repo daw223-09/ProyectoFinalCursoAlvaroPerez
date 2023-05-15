@@ -39,3 +39,4 @@ Route::delete("/claseUsuarioDelete/{idUsuario}/{idClase}", [ClasesUsuarioControl
 Route::get("/getClaseUsuario/{idUsuario}", [ClasesUsuarioController::class, "getClaseUsuario"]);
 
 Route::get("/material", [MaterialController::class, "index"]);
+Route::get("/materialPorNombre/{material}", [MaterialController::class, "getMaterialPorNombre"]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -14,7 +15,14 @@ class MaterialController extends Controller
     {
         //public function index()
         return Material::all();
+    }
 
+    public function getMaterialPorNombre(Request $request)
+    {
+        $material = $request->material;
+        //$materiales = Material::where('material', '=', $material)->get();
+        $materiales = DB::table('materials')->select("id")->where('material', '=', $material)->get();
+        return $materiales;
     }
 
     /**

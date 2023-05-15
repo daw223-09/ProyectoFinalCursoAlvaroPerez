@@ -1,4 +1,3 @@
-<!-- https://www.sport.es/labolsadelcorredor/material-esencial-para-practicar-fitness-en-el-gimnasio/ -->
 <h2>Pesos</h2>
 
 <div class="row">
@@ -14,8 +13,8 @@
                   <p class="card-text">Mancuernas</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button (click)="addToCart(0)" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button><!-- *ngIf="loggedIn" -->
+                      <button (click)="addToCart(0)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
                     </div>
                     <small class="text-body-secondary">{{precioMaterial[0]}}€</small>
                   </div>
@@ -29,8 +28,8 @@
                   <p class="card-text">Pesas Rusas</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button (click)="addToCart(1)" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button><!-- *ngIf="loggedIn" -->
+                      <button (click)="addToCart(1)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
                     </div>
                     <small class="text-body-secondary">{{precioMaterial[1]}}€</small>
                   </div>
@@ -44,330 +43,113 @@
                   <p class="card-text">Discos de hierro</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-
+                      <button (click)="addToCart(2)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
                     </div>
-                    <small class="text-body-secondary"> plazas</small>
+                    <small class="text-body-secondary">{{precioMaterial[2]}}€</small>
                   </div>
                 </div>
               </div>
             </div>
-
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-2">
-    <h3>Carrito</h3>
-    <div class="equipamiento">{{carrito[0]}}</div>
-    <div class="total">Total: {{total}} €</div>
-    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+  <div class="col-3">
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3>Carrito</h3>
+        <div class="equipamiento" *ngFor="let item of carrito">
+          <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item)"></i></div>
+        </div>
+        <div class="total">Total: {{total}} €</div>
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- <div class="total">Total: {{total}} €</div>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/mancuernas.jpg">
-            <div class="card-body">
-              <p class="card-text">Mancuernas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button  (click)="add(30)" type="button" class="btn btn-sm btn-outl<ine-success"><i class="fas fa-cart-plus"></i>Añadir</button>*ngIf="loggedIn"
-                  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-                </div>
-                <small class="text-body-secondary">{{mancuerna}}€</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/pesaRusa.jpg">
-            <div class="card-body">
-              <p class="card-text">Pesas Rusas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button  (click)="add(25)" type="button" class="btn btn-sm btn-outl<ine-success"><i class="fas fa-cart-plus"></i>Añadir</button>*ngIf="loggedIn"
-                </div>
-                <small class="text-body-secondary">{{pesaRusa}}€</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/discosHierro.jpeg">
-            <div class="card-body">
-              <p class="card-text">Discos de hierro</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-
-
-    <div class="carousel-item">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyCombat.jpeg">
-            <div class="card-body">
-              <p class="card-text">Consiste en realizar movimientos basados en distintas artes marciales siguiendo el
-                ritmo de una base musical.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/spinning.jpg">
-            <div class="card-body">
-              <p class="card-text">Spinning es un ejercicio aeróbico, que se ha convertido en una de las actividades
-                físicas más demandadas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="carousel-item">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyCombat.jpeg">
-            <div class="card-body">
-              <p class="card-text">Consiste en realizar movimientos basados en distintas artes marciales siguiendo el
-                ritmo de una base musical.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyPump.jpg">
-            <div class="card-body">
-              <p class="card-text">BodyPump es un programa grupal de entrenamiento basado en el levantamiento de pesas
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary">plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/spinning.jpg">
-            <div class="card-body">
-              <p class="card-text">Spinning es un ejercicio aeróbico, que se ha convertido en una de las actividades
-                físicas más demandadas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-<!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button> -->
-
-
-
-
-
+<br>
 <h2>Otros</h2>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/esterilla.jpeg">
-            <div class="card-body">
-              <p class="card-text">Esterilla</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
+<div class="row">
+  <div class="col-9">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="assets/esterilla.jpeg">
+                <div class="card-body">
+                  <p class="card-text">Esterilla</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button (click)="addToCart(3)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
+                    </div>
+                    <small class="text-body-secondary">{{precioMaterial[3]}}€</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary"> plazas</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/pesaRusa.jpg">
-            <div class="card-body">
-              <p class="card-text">Pesas Rusas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="assets/bandaElastica.jpg">
+                <div class="card-body">
+                  <p class="card-text">Banda Elastica</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button (click)="addToCart(4)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
+                    </div>
+                    <small class="text-body-secondary">{{precioMaterial[4]}}€</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">plazas</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/discosHierro.jpeg">
-            <div class="card-body">
-              <p class="card-text">Discos de hierro</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="assets/comba.jpg">
+                <div class="card-body">
+                  <p class="card-text">Comba</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button (click)="addToCart(5)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                          class="fas fa-cart-plus"></i>Añadir</button>
+                    </div>
+                    <small class="text-body-secondary">{{precioMaterial[5]}}€</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="carousel-item">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyCombat.jpeg">
-            <div class="card-body">
-              <p class="card-text">Consiste en realizar movimientos basados en distintas artes marciales siguiendo el
-                ritmo de una base musical.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/spinning.jpg">
-            <div class="card-body">
-              <p class="card-text">Spinning es un ejercicio aeróbico, que se ha convertido en una de las actividades
-                físicas más demandadas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
+       <!--  <div class="carousel-item">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="assets/comba.jpg">
+              <div class="card-body">
+                <p class="card-text">Otro</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button (click)="addToCart(6)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
+                        class="fas fa-cart-plus"></i>Añadir</button>
+                  </div>
+                  <small class="text-body-secondary">{{precioMaterial[6]}}€</small>
                 </div>
-                <small class="text-body-secondary"> plazas</small>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="carousel-item">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyCombat.jpeg">
-            <div class="card-body">
-              <p class="card-text">Consiste en realizar movimientos basados en distintas artes marciales siguiendo el
-                ritmo de una base musical.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/bodyPump.jpg">
-            <div class="card-body">
-              <p class="card-text">BodyPump es un programa grupal de entrenamiento basado en el levantamiento de pesas
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary">plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="assets/spinning.jpg">
-            <div class="card-body">
-              <p class="card-text">Spinning es un ejercicio aeróbico, que se ha convertido en una de las actividades
-                físicas más demandadas</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-
-                </div>
-                <small class="text-body-secondary"> plazas</small>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
 </div>
+
+<br>
+<br>
+<br>
