@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router){
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
 
   }
 
@@ -25,14 +25,19 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  submit(){
+  submit() {
     const formData = this.form.getRawValue();
 
-    this.http.post("http://185.253.155.205/back/api/index.php/api/register", formData).subscribe({
+    this.http.post("http://185.253.155.205/back/api/index.php/api/register", formData, { responseType: 'text' }).subscribe({
       next: (result: any) => {
-        this.router.navigate(["/"])
+        this.router.navigate(["/login"]).finally(() => location.reload());
       },
-      error:err=>console.log(err)
+      error: err => {
+        console.log(err)
+        alert("Credenciales incorrectas")
+      }
     });
+
+
   }
 }

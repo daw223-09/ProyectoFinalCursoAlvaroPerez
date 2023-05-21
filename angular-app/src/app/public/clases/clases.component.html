@@ -21,7 +21,7 @@
             <p class="card-text">Consiste en realizar movimientos basados en distintas artes marciales siguiendo el ritmo de una base musical.</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button *ngIf="loggedIn" (click)="apuntarse(1)" [disabled]="aBodyCombat" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                  <button *ngIf="loggedIn" (click)="apuntarse(1)" [disabled]="aBodyCombat" [disabled]="bodyCombatPlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                   <button *ngIf="aBodyCombat" (click)="desapuntarse(1)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                 </div>
                 <small class="text-body-secondary">{{pBodyCombat}} plazas</small>
@@ -38,7 +38,7 @@
             <p class="card-text">BodyPump es un programa grupal de entrenamiento basado en el levantamiento de pesas con el objetivo de fortalecer con múltiples repeticiones</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button *ngIf="loggedIn" (click)="apuntarse(2)" [disabled]="aBodyPump" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                    <button *ngIf="loggedIn" (click)="apuntarse(2)" [disabled]="aBodyPump" [disabled]="bodyPumpPlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                     <button *ngIf="aBodyPump" (click)="desapuntarse(2)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                   </div>
                 <small class="text-body-secondary">{{pBodyPump}} plazas</small>
@@ -55,7 +55,7 @@
             <p class="card-text">Spinning es un ejercicio aeróbico, que se ha convertido en una de las actividades físicas más demandadas</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button *ngIf="loggedIn" (click)="apuntarse(3)" [disabled]="aSpinning" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                    <button *ngIf="loggedIn" (click)="apuntarse(3)" [disabled]="aSpinning" [disabled]="spinningPlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                     <button *ngIf="aSpinning" (click)="desapuntarse(3)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                   </div>
                 <small class="text-body-secondary">{{pSpinning}} plazas</small>
@@ -72,7 +72,7 @@
             <p class="card-text">El yoga utiliza posturas físicas, ejercicios de respiración y meditación para mejorar la salud general</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button *ngIf="loggedIn" (click)="apuntarse(4)" [disabled]="aYoga" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                    <button *ngIf="loggedIn" (click)="apuntarse(4)" [disabled]="aYoga" [disabled]="yogaPlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                     <button *ngIf="aYoga" (click)="desapuntarse(4)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                   </div>
                 <small class="text-body-secondary">{{pYoga}} plazas</small>
@@ -89,7 +89,7 @@
             <p class="card-text">Xcore consiste en entrenar todo tu cuerpo con una barra de aluminio rellena de arena que se mueve de un lado a otro</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button *ngIf="loggedIn" (click)="apuntarse(5)" [disabled]="aXcore" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                    <button *ngIf="loggedIn" (click)="apuntarse(5)" [disabled]="aXcore" [disabled]="xcorePlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                     <button *ngIf="aXcore" (click)="desapuntarse(5)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                   </div>
                 <small class="text-body-secondary">{{pXcore}} plazas</small>
@@ -106,7 +106,7 @@
             <p class="card-text">El zumba es una disciplina creada para fortalecer y dar flexibilidad al cuerpo mediante movimientos de baile</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button *ngIf="loggedIn" (click)="apuntarse(6)" [disabled]="aZumba" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
+                    <button *ngIf="loggedIn" (click)="apuntarse(6)" [disabled]="aZumba" [disabled]="zumbaPlazas" type="button" class="btn btn-sm btn-outline-success">Apuntarse</button>
                     <button *ngIf="aZumba" (click)="desapuntarse(6)" type="button" class="btn btn-sm btn-outline-danger">Desapuntarse</button>
                   </div>
                 <small class="text-body-secondary">{{pZumba}} plazas</small>

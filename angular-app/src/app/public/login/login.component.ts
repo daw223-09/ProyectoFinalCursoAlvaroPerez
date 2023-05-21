@@ -37,10 +37,11 @@ export class LoginComponent implements OnInit {
 
     this.http.post("http://185.253.155.205/back/api/index.php/oauth/token", data).subscribe({
       next: (result: any) => {
+        console.log(result)
         localStorage.setItem("token", result.access_token),
         this.router.navigate(["/"]).finally(() => location.reload());
       },
-      error: err => console.log(err)
+      error:err=>alert("Credenciales incorrectas")
     });
   }
 }

@@ -20,6 +20,7 @@ button{
     color: white;
     border: 1px solid #02050a;
     border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 input{

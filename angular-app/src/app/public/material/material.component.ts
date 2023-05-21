@@ -17,8 +17,11 @@ export class MaterialComponent {
 
   loggedIn = false;
 
-  /* mancuerna = 0; pesaRusa = 0;
-  mancuernaLbl = ""; */
+  materiales: any = [];
+
+  imgMateriales:any = [
+    "assets/mancuernas.jpg", "assets/pesaRusa.jpg", "assets/discosHierro.jpeg", "assets/esterilla.jpeg", "assets/bandaElastica.jpg", "assets/comba.jpg"
+  ];
 
   nombreMaterial: any = [];
   precioMaterial: any = [];
@@ -39,11 +42,11 @@ export class MaterialComponent {
 
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/material').subscribe(data => {
       data.forEach((element: any) => {
-        this.nombreMaterial.push(element["material"])
+        this.materiales.push(element);
+        this.nombreMaterial.push(element["material"]);
         this.precioMaterial.push(element["precio"]);
       });
     });
-
 
     this.initConfig();
   }
@@ -62,7 +65,6 @@ export class MaterialComponent {
   removeFromCart(material: any, index: any) {
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/materialPorNombre/' + material).subscribe(data => {
       this.total -= this.precioMaterial[data[0].id-1];
-      console.log(this.precioMaterial[data[0].id-1])
       this.carrito.splice(index, 1);
       if (this.carrito.length == 0) {
         this.total = 0;

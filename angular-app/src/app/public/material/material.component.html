@@ -6,52 +6,23 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
+
+            <div class="col" *ngFor="let material of materiales.slice(0, 3); let i=index">
               <div class="card shadow-sm">
-                <img src="assets/mancuernas.jpg">
+                <img src={{imgMateriales[i]}}>
                 <div class="card-body">
-                  <p class="card-text">Mancuernas</p>
+                  <p class="card-text">{{nombreMaterial[i]}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button (click)="addToCart(0)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
+                      <button (click)="addToCart(i)" *ngIf="loggedIn" type="button"
+                        class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i>Añadir</button>
                     </div>
-                    <small class="text-body-secondary">{{precioMaterial[0]}}€</small>
+                    <small class="text-body-secondary">{{precioMaterial[i]}}€</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="assets/pesaRusa.jpg">
-                <div class="card-body">
-                  <p class="card-text">Pesas Rusas</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(1)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
-                    </div>
-                    <small class="text-body-secondary">{{precioMaterial[1]}}€</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="assets/discosHierro.jpeg">
-                <div class="card-body">
-                  <p class="card-text">Discos de hierro</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(2)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
-                    </div>
-                    <small class="text-body-secondary">{{precioMaterial[2]}}€</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+
           </div>
         </div>
       </div>
@@ -63,7 +34,8 @@
       <div class="card-body">
         <h3>Carrito</h3>
         <div class="equipamiento" *ngFor="let item of carrito; let i=index">
-          <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item, i)"></i></div>
+          <div class="items"><strong>{{item}}</strong><i class="fa fa-trash" (click)="removeFromCart(item, i)"></i>
+          </div>
         </div>
         <br>
         <div class="total">Total: {{total}} €</div>
@@ -81,71 +53,22 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
+            
+            <div class="col" *ngFor="let material of materiales.slice(3, 6); let i=index">
               <div class="card shadow-sm">
-                <img src="assets/esterilla.jpeg">
+                <img src={{imgMateriales[i+3]}}>
                 <div class="card-body">
-                  <p class="card-text">Esterilla</p>
+                  <p class="card-text">{{nombreMaterial[i+3]}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button (click)="addToCart(3)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
+                      <button (click)="addToCart(i+3)" *ngIf="loggedIn" type="button"
+                        class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i>Añadir</button>
                     </div>
-                    <small class="text-body-secondary">{{precioMaterial[3]}}€</small>
+                    <small class="text-body-secondary">{{precioMaterial[i+3]}}€</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="assets/bandaElastica.jpg">
-                <div class="card-body">
-                  <p class="card-text">Banda Elastica</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(4)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
-                    </div>
-                    <small class="text-body-secondary">{{precioMaterial[4]}}€</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="assets/comba.jpg">
-                <div class="card-body">
-                  <p class="card-text">Comba</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(5)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                          class="fas fa-cart-plus"></i>Añadir</button>
-                    </div>
-                    <small class="text-body-secondary">{{precioMaterial[5]}}€</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-       <!--  <div class="carousel-item">
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assets/comba.jpg">
-              <div class="card-body">
-                <p class="card-text">Otro</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button (click)="addToCart(6)" *ngIf="loggedIn" type="button" class="btn btn-sm btn-outline-success"><i
-                        class="fas fa-cart-plus"></i>Añadir</button>
-                  </div>
-                  <small class="text-body-secondary">{{precioMaterial[6]}}€</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>

@@ -12,14 +12,6 @@ import { MaterialComponent } from './public/material/material.component';
 
 const routes: Routes = [
   {
-    /* path: "public", component: PublicComponent,
-    children: [
-      { path: "", component: HomeComponent },
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-      { path: "clases", component: ClasesComponent },
-      { path: "material", component: MaterialComponent },
-    ] */
     path: "", component: PublicComponent,
     children: [
       { path: "", component: HomeComponent },

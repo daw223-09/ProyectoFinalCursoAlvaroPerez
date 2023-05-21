@@ -14,6 +14,7 @@ export class ClasesComponent {
   claseApuntado = [this.aBodyCombat, this.aBodyPump, this.aSpinning, this.aYoga, this.aXcore, this.aZumba];
 
   pBodyCombat = 0; pBodyPump = 0; pSpinning = 0; pYoga = 0; pXcore = 0; pZumba = 0;
+  bodyCombatPlazas = false; bodyPumpPlazas = false; spinningPlazas = false; yogaPlazas = false; xcorePlazas = false; zumbaPlazas = false;
 
   idUsuario: any;
 
@@ -31,16 +32,37 @@ export class ClasesComponent {
       this.pYoga = data[3].plazas;
       this.pXcore = data[4].plazas;
       this.pZumba = data[5].plazas;
+
+      if(this.pBodyCombat == 0){
+        this.bodyCombatPlazas = true;
+      }
+      if(this.pBodyPump == 0){
+        this.bodyPumpPlazas = true;
+      }
+      if(this.pSpinning == 0){
+        this.spinningPlazas = true;
+      }
+      if(this.pYoga == 0){
+        this.yogaPlazas = true;
+      }
+      if(this.pXcore == 0){
+        this.xcorePlazas = true;
+      }
+      if(this.pZumba == 0){
+        this.zumbaPlazas = true;
+      }
     });
 
     const headers = new HttpHeaders({
       "Authorization": `Bearer ${localStorage.getItem("token")}`
     });
 
+
     this.http.get<any>('http://185.253.155.205/back/api/index.php/api/user', { headers: headers }).subscribe(data => {
       this.idUsuario = data.id,
+
         this.http.get<any>('http://185.253.155.205/back/api/index.php/api/getClaseUsuario/' + this.idUsuario).subscribe(data => data.forEach((element: any) => {
-          for (let i = 0; i < this.claseApuntado.length; i++) {
+          for (let i = 1; i < this.claseApuntado.length; i++) {
             if (element["clase_id"] == i) {
               switch (i) {
                 case 1:
@@ -62,7 +84,6 @@ export class ClasesComponent {
                   this.aZumba = true;
                   break;
               }
-              /* this.claseApuntado[i] = true; */
             }
           }
         }));
@@ -218,7 +239,7 @@ export class ClasesComponent {
 
         this.http.post<any>('http://185.253.155.205/back/api/index.php/api/apuntado/' + clase, { bodyCombat: newData }).subscribe(data => this.pBodyCombat++);
 
-        this.http.delete<any>('http://185.253.155.205/back/api/index.php/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
+        this.http.delete<any>('http://185.253.155.205/back/api/index.php/api/claseUsuarioDelete/' + this.idUsuario + '/' + clase).subscribe(data => console.log(data));
 
         break;
 

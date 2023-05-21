@@ -11,6 +11,7 @@ export class HomeComponent {
 
   loggedIn = false;
   user: any;
+  nombre: any;
   constructor(private http: HttpClient, private router: Router){
 
   }
@@ -25,7 +26,8 @@ export class HomeComponent {
       });
       this.http.get("http://185.253.155.205/back/api/index.php/api/user", { headers: headers }).subscribe({
         next: (result: any) => {
-          this.user = result
+          this.user = result;
+          this.nombre = this.user.name;
         },
         error: err => console.log(err)
       }

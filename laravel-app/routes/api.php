@@ -29,7 +29,6 @@ Route::get("/clases", [ClaseController::class, "index"]);
 
 Route::get("/reservaClases", [ClasesUsuarioController::class, "index"]);
 
-//Route::get("/prueba", [ClasesUsuarioController::class, "clase"]);
 Route::get("/index", [ClaseController::class, "index"]);
 Route::get("/plazaClase/{clase}", [ClaseController::class, "plazaClase"]);
 Route::post("/apuntado/{id}", [ClaseController::class, "actualizar"]);
