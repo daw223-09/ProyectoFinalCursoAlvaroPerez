@@ -13,9 +13,7 @@ services:
       networkgym:
         ipv4_address: 172.24.0.2
     volumes:
-      - /root/proyecto/web:/var/www/html:rwx
-
-      - /root/proyecto/apacheSA:/etc/apache2/sites-available
+      - /root/proyecto/web:/var/www/html
   db:
     image: mysql:8.0.32
     restart: always
@@ -31,7 +29,7 @@ services:
       networkgym:
         ipv4_address: 172.24.0.4
     volumes:
-      - /root/proyecto/bbdd_persistente:/var/lib/mysql:rwx
+      - /root/proyecto/bbdd_persistente:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin:5.2.1-apache
     restart: always

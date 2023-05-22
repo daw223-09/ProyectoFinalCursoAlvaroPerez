@@ -11,6 +11,5 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mys
 RUN rm -r /etc/apache2/sites-available/000-default.conf
 COPY apacheSA /etc/apache2/sites-available/
 RUN a2ensite sites.conf
-
 RUN a2enmod rewrite
 EXPOSE 80
