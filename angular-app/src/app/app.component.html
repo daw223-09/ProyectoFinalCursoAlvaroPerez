@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/clases">Clases</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/material">Material</a>
+        </li>
+
+    </ul>
+    <div class="navbar-nav">
+        <a class="nav-link" routerLink="/login" *ngIf="!loggedIn">Iniciar Sesion</a>
+        <a class="nav-link" routerLink="/register" *ngIf="!loggedIn">Registrarse</a>
+        <a class="nav-link" href="" *ngIf="loggedIn" (click)="logout()">Cerrar Sesion</a>
+    </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div> 
