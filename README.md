@@ -4,9 +4,9 @@ Para instalar el proyecto, esta subido a github por lo tanto simplemente hay que
 git clone https://github.com/daw223-09/ProyectoFinalCursoAlvaroPerez.git
 Luego en la carpeta de /web/laravel-app ejecutamos el siguiente comando: composer install.
 
-Para la creacion de la base de datos, al usar laravel podemos hacer un php artisan migrate, esto creara las tablas, 
+Para la creación de la base de datos, al usar laravel podemos hacer un php artisan migrate, esto creara las tablas, 
 luego para insertar los datos tendríamos que ejecutar el script “gimnasio.sql”,
-para ejecutar el script tendriamos que ir al PhpMyAdmin y ejecutarlo.
+para ejecutar el script tendríamos que ir al PhpMyAdmin y ejecutarlo.
 Otra forma seria ejecutar el script directamente ya que este también contiene la creación de las tablas de la base de datos.
 Y por último hacemos un docekr-compose up -d
 
